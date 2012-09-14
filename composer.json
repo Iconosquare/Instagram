@@ -1,5 +1,5 @@
 {
-    "name": "instagram/instagram",
+    "name": "instagram",
     "description": "Instagram PHP",
     "keywords": ["instagram", "wrapper"],
     "type": "library",
