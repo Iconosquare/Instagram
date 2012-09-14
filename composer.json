@@ -1,0 +1,20 @@
+{
+    "name": "instagram/wrapper",
+    "description": "Instagram PHP",
+    "keywords": ["instagram", "wrapper"],
+    "type": "library",
+    "homepage": "https://github.com/Tripnity/Instagram",
+    "authors": [
+        {
+            "name": "Tripnity"
+        }
+    ],
+    "require": {
+        "php": ">=5.2.0",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-0": { "Instagram": "src/" }
+    }
+}
