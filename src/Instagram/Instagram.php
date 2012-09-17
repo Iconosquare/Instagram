@@ -6,7 +6,8 @@ namespace Instagram;
  *
  * @author gaetan
  */
-class Instagram {
+class Instagram 
+{
     
     protected $clientId, $clientSecret, $accessToken;
     protected $requestTokenUrl= 'https://api.instagram.com/oauth/authenticate';
