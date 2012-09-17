@@ -36,7 +36,6 @@ class Instagram
     public function getAccessToken($code, $redirectUri)
     {
         $params = array('client_id' => $this->clientId, 'client_secret' => $this->clientSecret, 'grant_type' => 'authorization_code', 'redirect_uri' => $redirectUri, 'code' => $code);
-        $qs = http_build_query($params);
         return $this->request('POST', "{$this->accessTokenUrl}", $params);
     }
 
@@ -47,7 +46,25 @@ class Instagram
         return "{$this->authorizeUrl}?{$qs}";
     }
     
-    
+    public function getLastPhotoByUser($ig_user_id, $ig_user_token, $nbMediaByPage = 6, $maxId = false)
+    {
+        $json = '';
+        $instagram = new Instagram();
+        $instagram->setAccessToken($ig_user_token);
+        
+        if (isset($maxId) && $maxId != false) {
+            $options = array('max_id' => $maxId, 'count' => $nbMediaByPage);
+        } else {
+            $options = array('count' => $nbMediaByPage);
+        }
+        $request = '/users/' . $ig_user_id . '/media/recent';
+        $retour = $instagram->get($request, $options);
+
+        $json = json_decode($retour->responseText);
+        unset($retour);
+       
+        return $json;
+    }
     
     public function delete($endpoint, $params = null)
     {
@@ -104,7 +121,7 @@ class Instagram
         if ($method === 'POST' && $params !== null) {
             curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params));
         }
-
+        
         $body = curl_exec($ch);
 		curl_close($ch);
         
