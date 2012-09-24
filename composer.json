@@ -1,5 +1,5 @@
 {
-    "name": "statigram/instagram",
+    "name": "instagram/instagram",
     "description": "Instagram PHP",
     "keywords": ["instagram", "wrapper"],
     "type": "library",
@@ -9,6 +9,7 @@
             "name": "Tripnity"
         }
     ],
+    "minimum-stability":"dev",
     "require": {
         "php": ">=5.2.0",
         "ext-curl": "*",
