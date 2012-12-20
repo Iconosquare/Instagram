@@ -1,5 +1,5 @@
 <?php
-namespace Instagram\Instagram;
+namespace Instagram;
 
 /**
  * Description of Instagram
