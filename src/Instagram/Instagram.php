@@ -16,6 +16,7 @@ class Instagram
     protected $apiUrl         = 'https://api.instagram.com';
     protected $userAgent      = 'EpiInstagram';
     protected $apiVersion     = 'v1';
+    protected $requestTimeout = 15000;
     
     function __construct($clientId = null, $clientSecret = null, $accessToken = null) 
     {
